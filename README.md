@@ -4,7 +4,7 @@
 
 ## Иллюстрация работы приложения
 
-![](https://github.com/Spfeed/SectionRotating/blob/master/section.gif)
+![](https://github.com/Spfeed/SectionRotating/tree/master/utils/section.gif)
 
 ## Предварительные условия
 
