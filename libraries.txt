@@ -1,0 +1,2 @@
+tkinter==8.6
+unittest=3.12.0
