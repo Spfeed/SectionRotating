@@ -2,7 +2,35 @@ import tkinter as tk
 from utils_module import about
 
 class Tkinter_module:
+    """
+     Класс Tkinter_module представляет собой графический интерфейс для ввода параметров и визуализации вращения отрезка.
 
+     Атрибуты:
+        root (tk.Tk): Главное окно приложения.
+        canvas (tk.Canvas): Холст для отображения вращающегося отрезка.
+        input_area (tk.Frame): Область для ввода параметров.
+        label_x_start (tk.Label): Метка для x-координаты начала отрезка.
+        entry_x_start (tk.Entry): Поле ввода x-координаты начала отрезка.
+        label_y_start (tk.Label): Метка для y-координаты начала отрезка.
+        entry_y_start (tk.Entry): Поле ввода y-координаты начала отрезка.
+        label_x_end (tk.Label): Метка для x-координаты конца отрезка.
+        entry_x_end (tk.Entry): Поле ввода x-координаты конца отрезка.
+        label_y_end (tk.Label): Метка для y-координаты конца отрезка.
+        entry_y_end (tk.Entry): Поле ввода y-координаты конца отрезка.
+        label_x_rotation (tk.Label): Метка для x-координаты точки вращения.
+        entry_x_rotation (tk.Entry): Поле ввода x-координаты точки вращения.
+        label_y_rotation (tk.Label): Метка для y-координаты точки вращения.
+        entry_y_rotation (tk.Entry): Поле ввода y-координаты точки вращения.
+        label_angular_speed (tk.Label): Метка для угловой скорости вращения.
+        entry_angular_speed (tk.Entry): Поле ввода угловой скорости вращения.
+        menu_bar (tk.Menu): Меню приложения.
+
+    Методы:
+        get_inputed_values(): Получение введенных пользователем в поля параметров.
+        close_window(): Закрытие окна приложения
+        create_button(txt, function): Создание кнопки с текстом txt и функцией function.
+        run(): Запуск главного цикла приложения.
+    """
     def __init__(self):
         self.root=tk.Tk()
         self.root.title("Вращение отрезка с выбранной угловой скоростью вокруг заданной точки")
@@ -63,16 +91,31 @@ class Tkinter_module:
         self.root.bind('<Escape>', self.close_window)
 
     def get_inputed_values(self):
+        """
+        Получение введенных пользователем параметров.
+
+        Возвращает:
+             Кортеж с параметрами (x_start, y_start, x_end, y_end, x_rotation, y_rotation, angular_speed).
+        """
         return self.entry_x_start.get(), self.entry_y_start.get(), self.entry_x_end.get(), self.entry_y_end.get(), self.entry_x_rotation.get(), self.entry_y_rotation.get(), self.entry_angular_speed.get()
 
     def close_window(self):
+        """Закрытие окна приложения."""
         self.root.destroy()
 
     def create_button(self,txt,function):
+        """
+               Создание кнопки.
+
+               Аргументы:
+                   txt (str): Текст на кнопке.
+                   function (function): Функция, которая будет вызвана при нажатии на кнопку.
+               """
         button=tk.Button(self.input_area, text=txt, command=function)
         button.grid(row=4, column=0, columnspan=4)
 
     def run(self):
+        """Запуск главного цикла приложения."""
         self.root.mainloop()
 
 
